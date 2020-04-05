@@ -15,14 +15,6 @@ class Pokemon:
         self.experience = experience
 
     def gain_experience(self):
-        #self.experience += 200
-        #for experience_needed in range(100, 1100, 100):
-        #something to think about:
-        #if level 1:
-        #    experience needed to level up 100
-        #if 2
-        #    needed 200
-        #...
 
         if self.experience >= 500:
             self.level += 1
