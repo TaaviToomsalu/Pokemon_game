@@ -52,18 +52,13 @@ class Pokemon:
         if self.is_knocked_out is True:
             print('Attacking Pokemon is knocked out')
         else:
-            if self.type == 'Fire' and other_pokemon.type == 'Fire':
-                damage = 0.5 * self.level
-            elif self.type == 'Fire' and other_pokemon.type == 'Water':
-                damage = 0.5 * self.level
-            elif self.type == 'Fire' and other_pokemon.type == 'Grass':
+            s = self.type 
+            o = other_pokemon.type
+            if s == 'fire' and o == 'grass' or s == 'grass' and o == 'water' or s == 'water' and o == 'fire':
                 damage = 2 * self.level
-            elif self.type == 'Grass' and other_pokemon.type == 'Fire':
-                damage = 0.5 * self.level
-            elif self.type == 'Grass' and other_pokemon.type == 'Water':
-                damage = 2 * self.level
-            elif self.type == 'Grass' and other_pokemon.type == 'Grass':
-                damage = 0.5 * self.level
+            elif s == 'grass' and o == 'fire' or s == 'fire' and o == 'fire' or s == 'grass' and o == 'grass' or s == 'water' and o == 'water' or s == 'fire' and o == 'water' or s == 'water' and o == 'grass':
+                damage = 0.5 *self.level
+
             other_pokemon.lose_health(damage)
             self.gain_experience()
 
@@ -119,4 +114,7 @@ charru = Charmander('Chaka-ckaha', 15, 150, 800, 'Water', 200)
 saruman = Trainer([picachu, dinosaur], 'Saruman', 5, dinosaur)
 gandalf = Trainer([picachu, dinosaur], 'Gandalf', 7, picachu)
 
+print(dinosaur.experience)
 charru.jump()
+saruman.attack_other_trainer(gandalf)
+
